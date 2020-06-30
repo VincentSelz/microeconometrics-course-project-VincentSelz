@@ -5,7 +5,8 @@ import pandas as pd
 def get_datasets():
     """Quickly get datasets necessary for replication.
 
-
+    Function reads in stata-files, puts all column names in lower case and sets
+    a MultiIndex with subject and period.
 
     Returns: Two datasets: One for the first movers and another for the second movers.
     """
@@ -17,7 +18,7 @@ def get_datasets():
     return df_1, df_2, df_2_pref
 
 
-def effort_overview(df_2):
+def effort_overview(df_2_pref):
     """Gives overview over efforts.
 
     Function uses a DataFrame of the Second Movers, drops a subject that does not
