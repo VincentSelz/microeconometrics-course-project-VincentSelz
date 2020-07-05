@@ -1,10 +1,21 @@
-# Course project template
+# Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition" by David Gill and Victoria Prowse
 
-This is a template for course projects. We use [GitHub Classroom](https://classroom.github.com) to administrate our student projects and so you need to sign up for a [GitHub Account](http://github.com).
+In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
+
+* Gill, David, and Victoria Prowse. 2012. [A Structural Analysis of Disappointment Aversion in a Real Effort Competition.](https://www.aeaweb.org/articles?id=10.1257/aer.102.1.469) *American Economic Review*, 102 (1): 469-503. 
 
 ## Project overview
 
-Please ensure that a brief description of your project is included in the [README.md](https://github.com/HumanCapitalAnalysis/template-course-project/blob/master/README.md), which provides a proper citation of your baseline article. Also, please set up the following badges that allow to easily access your project notebook.
+# Paper
+
+The authors use a sequential real effort tournament to test experimentally whether agents exhibit disappointment aversion. They find significant evidence for an discouragement effect and use the Method of Simulated Moments to estimate the strength of disappointment aversion on average and investigate heterogeneity.
+
+# Contribution
+
+My contribution consists of replicating the reduced form results and adding visualization to the data. For their analysis, the authors use Stata and Matlab. I am using python, yet if necessary, R is used for the replication. In fact, the regression packages in python do not print out the same results as the R and Stata output.
+
+The main result of the paper - their structural estimation, I attempt to replicate as well.
+
 
 <a href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/template-course-project/blob/master/example_project.ipynb"
    target="_parent">
@@ -68,7 +79,7 @@ Lindo et al. (2010) examine the effects of academic probation on student outcome
 
 * *Where can I look for publications that provide the data behind their research?* Some journals provide the data for their published articles as data supplements directly on their website. In addition, the [Replication Wiki](http://replication.uni-goettingen.de/wiki/index.php/Main_Page)  and the [Harvard Dataverse](https://dataverse.harvard.edu) compile a lot such information.
 
-* *What are other useful resources for research data?* There is a tremendous amount of data available online. For example, MDRC provides a host of data files for public use [here](https://www.mdrc.org/available-public-use-files) from the evaluation of public policy initiatives. More generally, [Google Dataset Search](https://datasetsearch.research.google.com) allows to look for all kinds of online data. 
+* *What are other useful resources for research data?* There is a tremendous amount of data available online. For example, MDRC provides a host of data files for public use [here](https://www.mdrc.org/available-public-use-files) from the evaluation of public policy initiatives. More generally, [Google Dataset Search](https://datasetsearch.research.google.com) allows to look for all kinds of online data.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/HumanCapitalAnalysis/template-course-project/blob/master/LICENSE)
 [![Continuous Integration](https://github.com/HumanCapitalAnalysis/template-course-project/workflows/Continuous%20Integration/badge.svg)](https://github.com/HumanCapitalAnalysis/template-course-project/actions)
