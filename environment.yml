@@ -3,6 +3,7 @@ channels:
   - opensourceeconomics
   - conda-forge
   - defaults
+  - r
 dependencies:
   - estimagic=0.0.26
   - gfortran_impl_osx-64=7.3.0
@@ -15,8 +16,9 @@ dependencies:
   - numba=0.48.0
   - numpy=1.18.5
   - pandas=1.0.5
-  - pip=20.1.1
+  - pip
   - python=3.7.6
+  - r-essentials
   - r-haven=2.3.1
   - r-msm=1.6.8
   - r-plm=2.2_3
@@ -34,6 +36,7 @@ dependencies:
   - qtconsole=4.7.5
   - ipywidgets=7.5.1
   - scipy
+  - rpy2
 
 
 prefix: /Users/vincentselz/opt/anaconda3/envs/simulated_moments
