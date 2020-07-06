@@ -1,16 +1,16 @@
-# Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition" by David Gill and Victoria Prowse
+# Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition"
 
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
 
-* Gill, David, and Victoria Prowse. 2012. [A Structural Analysis of Disappointment Aversion in a Real Effort Competition.](https://www.aeaweb.org/articles?id=10.1257/aer.102.1.469) *American Economic Review*, 102 (1): 469-503. 
+* Gill, David, and Victoria Prowse. 2012. [A Structural Analysis of Disappointment Aversion in a Real Effort Competition.](https://www.aeaweb.org/articles?id=10.1257/aer.102.1.469) *American Economic Review*, 102 (1): 469-503.
 
 ## Project overview
 
-# Paper
+### Paper
 
-The authors use a sequential real effort tournament to test experimentally whether agents exhibit disappointment aversion. They find significant evidence for an discouragement effect and use the Method of Simulated Moments to estimate the strength of disappointment aversion on average and investigate heterogeneity.
+Gill and Prowse (2012) use a sequential real effort tournament to test experimentally whether agents exhibit disappointment aversion. They find significant evidence for an discouragement effect and use the Method of Simulated Moments to estimate the strength of disappointment aversion on average and investigate heterogeneity.
 
-# Contribution
+### Contribution
 
 My contribution consists of replicating the reduced form results and adding visualization to the data. For their analysis, the authors use Stata and Matlab. I am using python, yet if necessary, R is used for the replication. In fact, the regression packages in python do not print out the same results as the R and Stata output.
 
@@ -66,20 +66,6 @@ A typical project notebook has the following structure:
 * independent contribution, e.g. additional external evidence, robustness checks, visualization
 
 There might be good reason to deviate from this structure. If so, please simply document your reasoning and go ahead. Please use the opportunity to review other student projects for some inspirations as well.
-
-## Project Example
-
-The notebook [example_project.ipynb](https://github.com/HumanCapitalAnalysis/template-course-project/blob/master/example_project.ipynb) contains an example project by [Annica Gehlen](https://github.com/amageh) from the 2019 iteration of the [Mircoeconometrics](https://github.com/HumanCapitalAnalysis/microeconometrics) class at Bonn University. It replicates the results from the following paper:
-
-* Lindo, J. M., Sanders, N. J., & Oreopoulos, P. (2010). [Ability, Gender, and Performance Standards: Evidence from Academic Probation](https://www.aeaweb.org/articles?id=10.1257/app.2.2.95). *American Economic Journal: Applied Economics*, 2(2), 95-117.
-
-Lindo et al. (2010) examine the effects of academic probation on student outcomes using a regression discontinuity design. The analysis is based on data from a large Canadian university and evaluates whether academic probation is successful in improving the performance of low scoring students. Consistent with a model of performance standards, the authors find that being placed on probation in the first year of university induces some students to drop out of school while it improves the grades of students who continue their studies. In a more general sense, academic probation can offer insights into how agents respond to negative incentives and the threat of punishment in a real-world context.
-
-## Frequently asked questions and answers
-
-* *Where can I look for publications that provide the data behind their research?* Some journals provide the data for their published articles as data supplements directly on their website. In addition, the [Replication Wiki](http://replication.uni-goettingen.de/wiki/index.php/Main_Page)  and the [Harvard Dataverse](https://dataverse.harvard.edu) compile a lot such information.
-
-* *What are other useful resources for research data?* There is a tremendous amount of data available online. For example, MDRC provides a host of data files for public use [here](https://www.mdrc.org/available-public-use-files) from the evaluation of public policy initiatives. More generally, [Google Dataset Search](https://datasetsearch.research.google.com) allows to look for all kinds of online data.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/HumanCapitalAnalysis/template-course-project/blob/master/LICENSE)
 [![Continuous Integration](https://github.com/HumanCapitalAnalysis/template-course-project/workflows/Continuous%20Integration/badge.svg)](https://github.com/HumanCapitalAnalysis/template-course-project/actions)
