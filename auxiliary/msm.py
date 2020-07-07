@@ -52,6 +52,10 @@ def params_description(): ## TODO:
     df = pd.DataFrame(data, columns=['category', 'name', 'comment'])
     return df
 
+def replace_nans(df):
+    """Replace missing values in data."""
+    return df.fillna(0)
+
 def effort_std(df):
     """Standard deviation of the effort."""
     return df['e2'].std()
@@ -60,15 +64,57 @@ def df_autocorr(df, lag=1, axis=0):
     """Compute full-sample column-wise autocorrelation for a DataFrame."""
     return df.apply(lambda col: col.autocorr(lag), axis=axis)
 
-def calc_autocorrelation(df, lag=1):
+def calc_autocorrelation_lag1(df):
     """Compute average autocorrelation with specified lag."""
     corr_rounds = df.reset_index(inplace=False)
     corr_rounds = corr_rounds.pivot(index='period', columns='subject')['e2']
-    return corr_rounds.apply(lambda col: col.autocorr(lag), axis=0).mean()
+    return corr_rounds.apply(lambda col: col.autocorr(1), axis=0).mean()
 
-def period_average(df, period=1):
+def calc_autocorrelation_lag2(df):
+    """Compute average autocorrelation with specified lag."""
+    corr_rounds = df.reset_index(inplace=False)
+    corr_rounds = corr_rounds.pivot(index='period', columns='subject')['e2']
+    return corr_rounds.apply(lambda col: col.autocorr(2), axis=0).mean()
+
+def period1_average(df):
     """Compute period average effort."""
-    return df.query(f'period == {period}')['e2'].mean()
+    return df.query(f'period == {1}')['e2'].mean()
+
+def period2_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {2}')['e2'].mean()
+
+def period3_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {3}')['e2'].mean()
+
+def period4_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {4}')['e2'].mean()
+
+def period5_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {5}')['e2'].mean()
+
+def period6_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {6}')['e2'].mean()
+
+def period7_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {7}')['e2'].mean()
+
+def period8_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {8}')['e2'].mean()
+
+def period9_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {9}')['e2'].mean()
+
+def period10_average(df):
+    """Compute period average effort."""
+    return df.query(f'period == {10}')['e2'].mean()
 
 def cond_corr_e2_prize(df):
     """Correlation of e2 and the prize after partialing out other effects."""
@@ -94,7 +140,7 @@ def cond_corr_e2_e1timesprize(df):
         df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
     return df_resid['e2_resid'].corr(df_resid['e1timesprize_resid'])
 
-def j_perc_cond_corr_e2_prize(df, perc=17):
+def perc17_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
     df_resid = pd.DataFrame(columns=['e2_resid', 'prize_resid'],index=df.index)
     for label in ['e2','prize']:
@@ -107,9 +153,69 @@ def j_perc_cond_corr_e2_prize(df, perc=17):
     cond_corr = list()
     for key in dfs:
         cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['prize_resid']))
-    return np.percentile(cond_corr, perc)
+    return np.percentile(cond_corr, 17)
 
-def j_perc_cond_corr_e2_e1(df, perc=17):
+def perc33_cond_corr_e2_prize(df):
+    """J percentile of the correlation of e2 and the prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'prize_resid'],index=df.index)
+    for label in ['e2','prize']:
+        column, formula = f'{label}_resid', f'{label}~e1+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['prize_resid']))
+    return np.percentile(cond_corr, 33)
+
+def perc50_cond_corr_e2_prize(df):
+    """J percentile of the correlation of e2 and the prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'prize_resid'],index=df.index)
+    for label in ['e2','prize']:
+        column, formula = f'{label}_resid', f'{label}~e1+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['prize_resid']))
+    return np.percentile(cond_corr, 50)
+
+def perc66_cond_corr_e2_prize(df):
+    """J percentile of the correlation of e2 and the prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'prize_resid'],index=df.index)
+    for label in ['e2','prize']:
+        column, formula = f'{label}_resid', f'{label}~e1+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['prize_resid']))
+    return np.percentile(cond_corr, 66)
+
+def perc83_cond_corr_e2_prize(df):
+    """J percentile of the correlation of e2 and the prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'prize_resid'],index=df.index)
+    for label in ['e2','prize']:
+        column, formula = f'{label}_resid', f'{label}~e1+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['prize_resid']))
+    return np.percentile(cond_corr, 83)
+
+def perc17_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
     df_resid = pd.DataFrame(columns=['e2_resid', 'e1_resid'],index=df.index)
     for label in ['e2','e1']:
@@ -122,9 +228,69 @@ def j_perc_cond_corr_e2_e1(df, perc=17):
     cond_corr = list()
     for key in dfs:
         cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1_resid']))
-    return np.percentile(cond_corr, perc)
+    return np.percentile(cond_corr, 17)
 
-def j_perc_cond_corr_e2_e1timesprize(df, perc=17):
+def perc33_cond_corr_e2_e1(df):
+    """J percentile of the correlation of e2 and e1 after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1_resid'],index=df.index)
+    for label in ['e2','e1']:
+        column, formula = f'{label}_resid', f'{label}~prize+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1_resid']))
+    return np.percentile(cond_corr, 33)
+
+def perc50_cond_corr_e2_e1(df):
+    """J percentile of the correlation of e2 and e1 after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1_resid'],index=df.index)
+    for label in ['e2','e1']:
+        column, formula = f'{label}_resid', f'{label}~prize+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1_resid']))
+    return np.percentile(cond_corr, 50)
+
+def perc66_cond_corr_e2_e1(df):
+    """J percentile of the correlation of e2 and e1 after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1_resid'],index=df.index)
+    for label in ['e2','e1']:
+        column, formula = f'{label}_resid', f'{label}~prize+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1_resid']))
+    return np.percentile(cond_corr, 66)
+
+def perc83_cond_corr_e2_e1(df):
+    """J percentile of the correlation of e2 and e1 after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1_resid'],index=df.index)
+    for label in ['e2','e1']:
+        column, formula = f'{label}_resid', f'{label}~prize+e1timesprize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1_resid']))
+    return np.percentile(cond_corr, 83)
+
+def perc17_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
     df_resid = pd.DataFrame(columns=['e2_resid', 'e1timesprize_resid'],index=df.index)
     for label in ['e2','e1timesprize']:
@@ -137,7 +303,67 @@ def j_perc_cond_corr_e2_e1timesprize(df, perc=17):
     cond_corr = list()
     for key in dfs:
         cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1timesprize_resid']))
-    return np.percentile(cond_corr, perc)
+    return np.percentile(cond_corr, 17)
+
+def perc33_cond_corr_e2_e1timesprize(df):
+    """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1timesprize_resid'],index=df.index)
+    for label in ['e2','e1timesprize']:
+        column, formula = f'{label}_resid', f'{label}~e1+prize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1timesprize_resid']))
+    return np.percentile(cond_corr, 33)
+
+def perc50_cond_corr_e2_e1timesprize(df):
+    """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1timesprize_resid'],index=df.index)
+    for label in ['e2','e1timesprize']:
+        column, formula = f'{label}_resid', f'{label}~e1+prize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1timesprize_resid']))
+    return np.percentile(cond_corr, 50)
+
+def perc66_cond_corr_e2_e1timesprize(df):
+    """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1timesprize_resid'],index=df.index)
+    for label in ['e2','e1timesprize']:
+        column, formula = f'{label}_resid', f'{label}~e1+prize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1timesprize_resid']))
+    return np.percentile(cond_corr, 66)
+
+def perc83_cond_corr_e2_e1timesprize(df):
+    """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
+    df_resid = pd.DataFrame(columns=['e2_resid', 'e1timesprize_resid'],index=df.index)
+    for label in ['e2','e1timesprize']:
+        column, formula = f'{label}_resid', f'{label}~e1+prize+TimeEffects'
+        df_resid.loc[:,column] = PanelOLS.from_formula(formula, data=df).fit().resids
+    df_resid.reset_index(inplace=True)
+    dfs = dict()
+    for sub in df_resid['subject'].unique():
+        dfs[f'{sub}'] = df_resid.query(f'subject == {sub}')
+    cond_corr = list()
+    for key in dfs:
+        cond_corr.append(dfs[key]['e2_resid'].corr(dfs[key]['e1timesprize_resid']))
+    return np.percentile(cond_corr, 83)
 
 def low_effort_low_prize(df):
     return df.query('e1 < 23 & prize < 1.33')['e2'].mean()
@@ -150,10 +376,6 @@ def high_effort_low_prize(df):
 
 def high_effort_high_prize(df):
     return df.query('e1 > 28 & prize > 2.55')['e2'].mean()
-
-def replace_nans(df):
-    """Replace missing values in data."""
-    return df.fillna(0)
 
 def low_effort_prop(df):
     return df.query('e2 < 15')['e2'].count()/df['e2'].count()
