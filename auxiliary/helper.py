@@ -6,6 +6,7 @@ from auxiliary.overview import *
 from scipy.stats.stats import pearsonr
 
 def get_resid(df, sub, column_name):
+    """Perform a linear regression to single out residuals."""
     int = df.loc[sub,:][f'{column_name}'].to_numpy()
     xr = np.stack((np.arange(1, 11),np.ones(10)),axis=0).T
     b = np.dot(np.linalg.inv(np.dot(xr.T,xr)),np.dot(xr.T,int))
