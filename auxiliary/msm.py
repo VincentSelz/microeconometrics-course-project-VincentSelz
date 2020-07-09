@@ -9,6 +9,31 @@ from auxiliary.helper import *
 from linearmodels.panel import PanelOLS
 
 def params_description():
+    data={'category': ['lambda','lambda', 'cost_of_effort', 'cost_of_effort', 'cost_of_effort',
+    'cost_of_effort','cost_of_effort','cost_of_effort','cost_of_effort'],
+    'name':['lambda','std_lambda', 'phi_pi', 'varphi_pi', 'phi_mu', 'varphi_mu',
+    'kappa', 'b','delta'],
+    'values':[np.nan]*9,
+    'comment':['strength of disappointment aversion on average', 'standard deviation of strength of disappointment aversion',
+    'unobserved differences in cost of effort functions that vary over rounds and individuals', 'unobserved differences in cost of effort functions that vary over rounds and individuals',
+    'unobserved differences in cost of effort functions between individuals, constant over rounds', 'unobserved differences in cost of effort functions between individuals, constant over rounds',
+    'common cost parameter','common cost parameter','round effects']
+    }
+    df = pd.DataFrame(data, columns=['category', 'name','values', 'comment'])
+    df.set_index(['category','name'],inplace=True)
+    return df
+
+def trial_values():
+    data={
+    'name':['lambda','std_lambda', 'phi_pi', 'varphi_pi', 'phi_mu', 'varphi_mu',
+    'kappa', 'b','delta2','delta3','delta4','delta5','delta6','delta7','delta8','delta9','delta10'],
+    'trial_values':[2, 1.5,0.35,0.85,0.35,0.85,1.75,np.nan,0, 0, 0, 0, 0, 0, 0, 0,0]
+    }
+    df = pd.DataFrame(data, columns=['name','trial_values'])
+    return df
+
+
+def old_description():
     data={'category':['lambda','lambda','lambda','lambda','lambda', 'lambda', 'lambda','std_lambda',
     'std_lambda', 'std_lambda', 'std_lambda', 'std_lambda', 'std_lambda', 'std_lambda',
     'phi_pi', 'phi_pi', 'phi_pi', 'phi_pi', 'phi_pi',
