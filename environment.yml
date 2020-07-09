@@ -13,10 +13,10 @@ dependencies:
 - jupyterlab
 - pip
 #- autoreload
-- linearmodels
+#- linearmodels
 - statsmodels
 - r-haven
-- r-msm
+#- r-msm
 - r-plm
 - r-stargazer
 - r-car
