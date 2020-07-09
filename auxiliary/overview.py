@@ -3,6 +3,8 @@
 import pandas as pd
 import seaborn as sns
 import scipy.stats as stats
+import matplotlib as plt
+import matplotlib.pyplot as pyplt
 
 def get_datasets():
     """Quickly get datasets necessary for replication.
@@ -46,6 +48,17 @@ def effort_plot(rslt):
     effort_plot.set_xlabel('Period')
     effort_plot.set_ylabel('Effort')
     return effort_plot
+
+def effort_distr_per_round(df):
+    """Plots the distribution of effort per round."""
+    new = df.reset_index(inplace=False)
+    for round in new['period'].unique():
+        distr = new.query(f'period == {round}')['e2']
+        fig, ax = pyplt.subplots()
+        ax.hist(distr)
+        ax.set_xlabel(f"Effort Round {round}")
+        ax.set_ylabel("Frequency")
+        pyplt.tight_layout()
 
 def joint_effort(df):
     """Using the setup from lecture 4 to plot the joint distribution
