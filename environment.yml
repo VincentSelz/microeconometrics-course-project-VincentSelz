@@ -15,9 +15,9 @@ dependencies:
 #- autoreload
 - linearmodels
 - statsmodels
-- r-haven=2.3.1
-- r-msm=1.6.8
-- r-plm=2.2_3
+- r-haven
+- r-msm
+- r-plm
 - r-stargazer
 - r-car
 - rpy2
