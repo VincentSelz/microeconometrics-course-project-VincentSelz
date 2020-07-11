@@ -5,10 +5,6 @@ python:
 
 bundler_args: --retry 3
 
-before_install:
-  - sudo apt-get -y install r-msm
-  - sudo apt-get -y install linearmodels
-
 install:
   - sudo apt-get update
   - ./utils/travis_miniconda.sh
