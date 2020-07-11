@@ -2,12 +2,13 @@ name: student_project
 
 channels:
 - opensourceeconomics
+- conda-forge
 
 dependencies:
 - numpy
 - pandas
 - scipy
-- estimagic
+- estimagic >= 0.0.30
 - respy
 - matplotlib
 - jupyterlab
