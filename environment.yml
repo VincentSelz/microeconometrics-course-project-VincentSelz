@@ -6,6 +6,7 @@ channels:
 
 dependencies:
 - numpy
+- numba == 0.48.0
 - pandas
 - scipy
 - estimagic >= 0.0.30
