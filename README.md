@@ -1,5 +1,8 @@
 # Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition"
 
+![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
 
 * Gill, David, and Victoria Prowse. 2012. [A Structural Analysis of Disappointment Aversion in a Real Effort Competition.](https://www.aeaweb.org/articles?id=10.1257/aer.102.1.469) *American Economic Review*, 102 (1): 469-503.
