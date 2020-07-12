@@ -42,7 +42,7 @@ def effort_overview(df):
     rslt = rslt[['Mean E1', 'SD E1','Mean E2', 'SD E2','Min E1','Min E2','Max E1','Max E2']]
     return rslt
 
-def effort_plot(rslt):
+def effort_chart(rslt):
     """Plots the Effort overview."""
     effort_plot = rslt[['Mean E1', 'Mean E2']].plot(title='Mean Effort per Period', figsize=(10, 5), kind='bar', yerr=rslt[['SD E1', 'SD E2']].values.T, alpha = 0.7, error_kw=dict(elinewidth=1, ecolor='k'))
     effort_plot.set_xlabel('Period')
