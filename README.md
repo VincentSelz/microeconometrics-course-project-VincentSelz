@@ -8,7 +8,6 @@
    <img align="center"
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20"></a>
-[![Nb Viewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png)](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb)
 
 
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
