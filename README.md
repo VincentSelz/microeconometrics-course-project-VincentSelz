@@ -2,6 +2,14 @@
 
 ![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/master?urlpath=https%3A%2F%2Fgithub.com%2FHumanCapitalAnalysis%2Fmicroeconometrics-course-project-VincentSelz%2Fblob%2Fmaster%2FProject-VincentSelz.ipynb)
+<a href="https://mybinder.org/v2/gh/HumanCapitalAnalysis/template-course-project/master?filepath=Project-VincentSelz.ipynb"
+    target="_parent">
+    <img align="center"
+       src="https://mybinder.org/badge_logo.svg"
+       width="109" height="20">
+</a>
+
 
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
 
