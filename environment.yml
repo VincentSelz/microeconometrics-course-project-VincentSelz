@@ -14,8 +14,8 @@ dependencies:
 - respy
 - matplotlib
 - jupyterlab
+- jupyter_contrib_nbextensions
 - pip
-#- autoreload
 - linearmodels >= 4.17
 - statsmodels
 - r-haven
