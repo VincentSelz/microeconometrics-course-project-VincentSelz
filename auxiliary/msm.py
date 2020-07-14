@@ -215,8 +215,9 @@ def perc17_cond_corr_e2_prize(df):
         p_resid = get_resid(df, i, 'prize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(p_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.17)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.17, interpolation='lower')[0]
 
 def perc33_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
@@ -225,8 +226,9 @@ def perc33_cond_corr_e2_prize(df):
         p_resid = get_resid(df, i, 'prize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(p_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.33)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.33, interpolation='lower')[0]
 
 def perc50_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
@@ -235,8 +237,9 @@ def perc50_cond_corr_e2_prize(df):
         p_resid = get_resid(df, i, 'prize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(p_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.5)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.5, interpolation='lower')[0]
 
 def perc66_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
@@ -245,8 +248,9 @@ def perc66_cond_corr_e2_prize(df):
         p_resid = get_resid(df, i, 'prize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(p_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.66)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.66, interpolation='lower')[0]
 
 def perc83_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
@@ -255,8 +259,9 @@ def perc83_cond_corr_e2_prize(df):
         p_resid = get_resid(df, i, 'prize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(p_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.83)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.83, interpolation='lower')[0]
 
 def perc17_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
@@ -265,8 +270,9 @@ def perc17_cond_corr_e2_e1(df):
         e1_resid = get_resid(df, i, 'e1')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.17)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.17, interpolation='lower')[0]
 
 def perc33_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
@@ -275,8 +281,9 @@ def perc33_cond_corr_e2_e1(df):
         e1_resid = get_resid(df, i, 'e1')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.33)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.33, interpolation='lower')[0]
 
 def perc50_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
@@ -285,8 +292,9 @@ def perc50_cond_corr_e2_e1(df):
         e1_resid = get_resid(df, i, 'e1')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.5)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.50, interpolation='lower')[0]
 
 def perc66_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
@@ -295,8 +303,9 @@ def perc66_cond_corr_e2_e1(df):
         e1_resid = get_resid(df, i, 'e1')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.66)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.66, interpolation='lower')[0]
 
 def perc83_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
@@ -305,8 +314,9 @@ def perc83_cond_corr_e2_e1(df):
         e1_resid = get_resid(df, i, 'e1')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.83)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.83, interpolation='lower')[0]
 
 def perc17_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
@@ -315,8 +325,9 @@ def perc17_cond_corr_e2_e1timesprize(df):
         e1timesprize_resid = get_resid(df, i, 'e1timesprize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1timesprize_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.17)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.17, interpolation='lower')[0]
 
 def perc33_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
@@ -325,8 +336,9 @@ def perc33_cond_corr_e2_e1timesprize(df):
         e1timesprize_resid = get_resid(df, i, 'e1timesprize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1timesprize_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.33)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.33, interpolation='lower')[0]
 
 def perc50_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
@@ -335,8 +347,9 @@ def perc50_cond_corr_e2_e1timesprize(df):
         e1timesprize_resid = get_resid(df, i, 'e1timesprize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1timesprize_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.5)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.5, interpolation='lower')[0]
 
 def perc66_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
@@ -345,8 +358,9 @@ def perc66_cond_corr_e2_e1timesprize(df):
         e1timesprize_resid = get_resid(df, i, 'e1timesprize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1timesprize_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.66)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.66, interpolation='lower')[0]
 
 def perc83_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
@@ -355,8 +369,9 @@ def perc83_cond_corr_e2_e1timesprize(df):
         e1timesprize_resid = get_resid(df, i, 'e1timesprize')
         e2_resid = get_resid(df, i, 'e2')
         corrs.append(e2_resid.corr(e1timesprize_resid))
-        ds = pd.DataFrame(corrs)
-    return ds.quantile(0.83)[0]
+        ds = pd.DataFrame(corrs, columns=['correlation'])
+        ds.sort_values(by='correlation', inplace=True)
+    return ds.quantile(0.83, interpolation='lower')[0]
 
 def low_effort_low_prize(df):
     return df.query('e1 <= 23 & prize <= 1.33')['e2'].mean()
