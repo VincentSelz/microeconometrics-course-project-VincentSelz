@@ -1,22 +1,15 @@
 # Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition"
-<a href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb"
-   target="_parent">
-   <img align="center"
-  src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
-      width="109" height="20"></a>
-<a
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/master?urlpath=https%3A%2F%2Fgithub.com%2FHumanCapitalAnalysis%2Fmicroeconometrics-course-project-VincentSelz%2Fblob%2Fmaster%2FProject-VincentSelz.ipynb)>
-</a>
-<a
-![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)>
-</a>
-<a
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/master?urlpath=https%3A%2F%2Fgithub.com%2FHumanCapitalAnalysis%2Fmicroeconometrics-course-project-VincentSelz%2Fblob%2Fmaster%2FProject-VincentSelz.ipynb)
+![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-></a>
+
 
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
 
+
 * Gill, David, and Victoria Prowse. 2012. [A Structural Analysis of Disappointment Aversion in a Real Effort Competition.](https://www.aeaweb.org/articles?id=10.1257/aer.102.1.469) *American Economic Review*, 102 (1): 469-503.
+
 
 ## Project overview
 
