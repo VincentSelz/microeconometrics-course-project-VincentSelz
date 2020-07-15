@@ -21,7 +21,6 @@ def get_datasets():
     df_2_pref = df_2.drop(index=302)
     return df_1, df_2, df_2_pref
 
-
 def effort_overview(df):
     """Gives overview over efforts.
 
@@ -47,6 +46,7 @@ def effort_chart(rslt):
     effort_plot = rslt[['Mean E1', 'Mean E2']].plot(title='Mean Effort per Period', figsize=(10, 5), kind='bar', yerr=rslt[['SD E1', 'SD E2']].values.T, alpha = 0.7, error_kw=dict(elinewidth=1, ecolor='k'))
     effort_plot.set_xlabel('Period')
     effort_plot.set_ylabel('Effort')
+    effort_plot.tick_params(axis ='x', rotation=0)
     return effort_plot
 
 def effort_distr_per_round(df):
@@ -55,10 +55,19 @@ def effort_distr_per_round(df):
     for round in new['period'].unique():
         distr = new.query(f'period == {round}')['e2']
         fig, ax = pyplt.subplots()
-        ax.hist(distr)
+        ax.hist(distr, bins=10)
         ax.set_xlabel(f"Effort Round {round}")
         ax.set_ylabel("Frequency")
         pyplt.tight_layout()
+
+def prize_distribution(df):
+    """Plots the prize distribution, visually check the randomization."""
+    prizes = df['prize']
+    fig, ax = pyplt.subplots()
+    ax.hist(prizes, bins=39, range=(0.10,3.90))
+    ax.set_xlabel("Prize values")
+    ax.set_ylabel("Number of draws")
+    return pyplt.tight_layout()
 
 def joint_effort(df):
     """Using the setup from lecture 4 to plot the joint distribution
