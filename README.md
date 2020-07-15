@@ -1,4 +1,3 @@
-# Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition"
 <a href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb"
    target="_parent">
    <img align="center"
@@ -8,8 +7,7 @@
 ![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
-
+# Replication of "A Structural Analysis of Disappointment Aversion in a Real Effort Competition"
 
 
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
