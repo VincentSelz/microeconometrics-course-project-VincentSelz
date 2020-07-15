@@ -4,12 +4,15 @@
    <img align="center"
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20"></a>
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/master?urlpath=https%3A%2F%2Fgithub.com%2FHumanCapitalAnalysis%2Fmicroeconometrics-course-project-VincentSelz%2Fblob%2Fmaster%2FProject-VincentSelz.ipynb)
+<a
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/master?urlpath=https%3A%2F%2Fgithub.com%2FHumanCapitalAnalysis%2Fmicroeconometrics-course-project-VincentSelz%2Fblob%2Fmaster%2FProject-VincentSelz.ipynb)>
 </a>
-![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)
+<a
+![Continuous Integration](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/workflows/Continuous%20Integration/badge.svg)>
 </a>
+<a
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+></a>
 
 In the notebook [Project-VincentSelz.ipynb](https://github.com/HumanCapitalAnalysis/microeconometrics-course-project-VincentSelz/blob/master/Project-VincentSelz.ipynb), I replicate the core findings of the following paper:
 
