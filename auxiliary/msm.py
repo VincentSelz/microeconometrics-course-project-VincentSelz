@@ -1,9 +1,10 @@
 """Functions for use in the Method of Simulated Moments."""
 import numpy as np
 import pandas as pd
+import respy as rp
 from linearmodels.panel import PanelOLS
 
-from auxiliary.helper import get_resid
+from auxiliary.helper import *
 
 
 def params_description(return_descriptives=False, return_toyestimates=False):
@@ -99,7 +100,7 @@ def params_description(return_descriptives=False, return_toyestimates=False):
         -0.2,
         -0.3,
         -0.3,
-        -0.4,]
+        -0.4]
     else:
         df["value"] = (df["upper"] + df["lower"]) / 2
     for i in range(8, 17):
@@ -405,7 +406,7 @@ def cond_corr_e2_e1timesprize(df):
 def perc17_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         p_resid = get_resid(df, i, "prize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(p_resid))
@@ -417,7 +418,7 @@ def perc17_cond_corr_e2_prize(df):
 def perc33_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         p_resid = get_resid(df, i, "prize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(p_resid))
@@ -429,7 +430,7 @@ def perc33_cond_corr_e2_prize(df):
 def perc50_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         p_resid = get_resid(df, i, "prize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(p_resid))
@@ -441,7 +442,7 @@ def perc50_cond_corr_e2_prize(df):
 def perc66_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         p_resid = get_resid(df, i, "prize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(p_resid))
@@ -453,7 +454,7 @@ def perc66_cond_corr_e2_prize(df):
 def perc83_cond_corr_e2_prize(df):
     """J percentile of the correlation of e2 and the prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         p_resid = get_resid(df, i, "prize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(p_resid))
@@ -465,7 +466,7 @@ def perc83_cond_corr_e2_prize(df):
 def perc17_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1_resid = get_resid(df, i, "e1")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1_resid))
@@ -477,7 +478,7 @@ def perc17_cond_corr_e2_e1(df):
 def perc33_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1_resid = get_resid(df, i, "e1")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1_resid))
@@ -489,7 +490,7 @@ def perc33_cond_corr_e2_e1(df):
 def perc50_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1_resid = get_resid(df, i, "e1")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1_resid))
@@ -501,7 +502,7 @@ def perc50_cond_corr_e2_e1(df):
 def perc66_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1_resid = get_resid(df, i, "e1")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1_resid))
@@ -513,7 +514,7 @@ def perc66_cond_corr_e2_e1(df):
 def perc83_cond_corr_e2_e1(df):
     """J percentile of the correlation of e2 and e1 after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1_resid = get_resid(df, i, "e1")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1_resid))
@@ -525,7 +526,7 @@ def perc83_cond_corr_e2_e1(df):
 def perc17_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1timesprize_resid = get_resid(df, i, "e1timesprize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1timesprize_resid))
@@ -537,7 +538,7 @@ def perc17_cond_corr_e2_e1timesprize(df):
 def perc33_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1timesprize_resid = get_resid(df, i, "e1timesprize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1timesprize_resid))
@@ -549,7 +550,7 @@ def perc33_cond_corr_e2_e1timesprize(df):
 def perc50_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1timesprize_resid = get_resid(df, i, "e1timesprize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1timesprize_resid))
@@ -561,7 +562,7 @@ def perc50_cond_corr_e2_e1timesprize(df):
 def perc66_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1timesprize_resid = get_resid(df, i, "e1timesprize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1timesprize_resid))
@@ -573,7 +574,7 @@ def perc66_cond_corr_e2_e1timesprize(df):
 def perc83_cond_corr_e2_e1timesprize(df):
     """J percentile of the correlation of e2 and the e1 * prize after partialing out other effects."""
     corrs = list()
-    for i in df["s2"].unique():
+    for i in df.index.get_level_values('subject').unique():
         e1timesprize_resid = get_resid(df, i, "e1timesprize")
         e2_resid = get_resid(df, i, "e2")
         corrs.append(e2_resid.corr(e1timesprize_resid))
@@ -612,9 +613,8 @@ def old_percentile_correlation(df):
     for label in ["e2", "e1"]:
         column, formula = f"{label}_resid", f"{label}~prize+e1timesprize+TimeEffects"
         df_resid.loc[:, column] = PanelOLS.from_formula(formula, data=df).fit().resids
-    df_resid.reset_index(inplace=True)
     dfs = dict()
-    for sub in df_resid["subject"].unique():
+    for sub in df_resid.index.get_level_values('subject').unique():
         dfs[f"{sub}"] = df_resid.query(f"subject == {sub}")
     cond_corr = list()
     for key in dfs:
@@ -719,48 +719,46 @@ def observed_moments(df):
     return observed_moments
 
 
-# def get_weighting_matrix(
-#    data,
-#    empirical_moments,
-#    calc_moments,
-#    n_bootstrap_samples,
-#    n_observations_per_sample,
-#    replace_missing_variances=None,
-# ):
-#    """ Computes a diagonal weighting matrix for estimation with msm. Weights are the
-#    inverse bootstrap variances of the observed sample moments."""
-#    # Seed for reproducibility.
-#    np.random.seed(47828324)
-#    flat_empirical_moments = rp.get_flat_moments(empirical_moments)
-#    index_base = data.index.get_level_values("Identifier").unique()
-#    calc_moments = _harmonize_input(calc_moments)
-#    # Create bootstrapped moments.
-#    moments_sample = []
-#    for _ in range(n_bootstrap_samples):
-#        ids_boot = np.random.choice(
-#            index_base, n_observations_per_sample, replace=False
-#        )
-#        moments_boot = [func(data.loc[ids_boot]) for func in calc_moments]
-#        flat_moments_boot = rp.get_flat_moments(moments_boot)
-#        flat_moments_boot = flat_moments_boot.reindex_like(flat_empirical_moments)
-#        moments_sample.append(flat_moments_boot)
-#
-#    # Compute variance for each moment and construct diagonal weighting matrix.
-#    moments_var = np.array(moments_sample).var(axis=0)
-#
-#    # The variance of missing moments is nan. Unless a repalcement variance is
-#    # specified, their inverse variance will be set to 0.
-#    if replace_missing_variances is None:
-#        diagonal = moments_var ** (-1)
-#        diagonal = np.nan_to_num(diagonal, nan=0)
-#        weighting_matrix = np.diag(diagonal)
-#    else:
-#        moments_var = np.nan_to_num(moments_var, nan=replace_missing_variances)
-#        diagonal = moments_var ** (-1)
-#        weighting_matrix = np.diag(diagonal)
-#
-#    # Checks weighting matrix.
-#    if np.isnan(weighting_matrix).any() or np.isinf(weighting_matrix).any():
-#        raise ValueError("Weighting matrix contains NaNs or infinite values.")
-#
-#    return weighting_matrix
+
+
+def get_weighting_matrix(
+   data,
+   empirical_moments,
+   calc_moments,
+   n_bootstrap_samples,
+   n_observations_per_sample,
+   replace_missing_variances=None,
+):
+   """ Computes a diagonal weighting matrix for estimation with msm. Weights are the
+   inverse bootstrap variances of the observed sample moments."""
+   # Seed for reproducibility.
+   np.random.seed(47828324)
+   flat_empirical_moments = rp.get_flat_moments(empirical_moments)
+   index_base = data.index.get_level_values("subject").unique()
+   calc_moments = dict_to_list(calc_moments)
+   # Create bootstrapped moments.
+   moments_sample = []
+   for _ in range(n_bootstrap_samples):
+       ids_boot = np.random.choice(
+           index_base, n_observations_per_sample, replace=False
+       )
+       moments_boot = [func(data.loc[ids_boot]) for func in calc_moments]
+       flat_moments_boot = rp.get_flat_moments(moments_boot)
+       flat_moments_boot = flat_moments_boot.reindex_like(flat_empirical_moments)
+       moments_sample.append(flat_moments_boot)
+   # Compute variance for each moment and construct diagonal weighting matrix.
+   moments_var = np.array(moments_sample).var(axis=0)
+   # The variance of missing moments is nan. Unless a repalcement variance is
+   # specified, their inverse variance will be set to 0.
+   if replace_missing_variances is None:
+       diagonal = moments_var ** (-1)
+       diagonal = np.nan_to_num(diagonal, nan=0)
+       weighting_matrix = np.diag(diagonal)
+   else:
+       moments_var = np.nan_to_num(moments_var, nan=replace_missing_variances)
+       diagonal = moments_var ** (-1)
+       weighting_matrix = np.diag(diagonal)
+   # Checks weighting matrix.
+   if np.isnan(weighting_matrix).any() or np.isinf(weighting_matrix).any():
+       raise ValueError("Weighting matrix contains NaNs or infinite values.")
+   return weighting_matrix
