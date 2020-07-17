@@ -12,7 +12,6 @@ from auxiliary.msm import *
 _,_,df = get_datasets()
 params = params_description()
 
-
 # Define assisting functions
 def weibull_draw(phi, var_phi):
     draw = phi * (-math.log(np.random.uniform()**(1/var_phi)))
@@ -26,7 +25,7 @@ def ref_point(p_win, v):
     r = p_win * v + (1 - p_win)*0
     return r
 
-def simulation(df, params):
+def simulation(df, params, seed=1789):
     """Simulate num_agents over 10 rounds.
 
     Parameters
@@ -41,10 +40,10 @@ def simulation(df, params):
 
     """
     # Create sim dataset with exogenous inputs
-    df_sim = df.loc[:,['e1','prize','e1timesprize','e2']]
-    df_sim['e2_sim'] = np.nan * len(df_sim)
+    df_sim = df.copy()
+    df_sim['e2'] = np.nan * len(df_sim)
     choices = 49
-    np.random.seed(435789237)
+    np.random.seed(seed)
     for sub in df_sim.index.get_level_values('subject').unique():
         #Set params on subject level
         _lambda = params.loc['lambda','lambda']['value']+ params.loc['lambda','std_lambda']['value'] * np.random.normal()
@@ -69,5 +68,5 @@ def simulation(df, params):
                 choice_list.append(utility)
             # Get the utility maximizing choice
             max_choice = choice_list.index(max(choice_list))
-            df_sim['e2_sim'].loc[sub,period] = max_choice
+            df_sim['e2'].loc[sub,period] = max_choice
     return df_sim
