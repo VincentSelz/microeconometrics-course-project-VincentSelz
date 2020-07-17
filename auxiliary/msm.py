@@ -1,14 +1,23 @@
-"""Functions for use in the method of Simulated Moments."""
+"""Functions for use in the Method of Simulated Moments."""
 import numpy as np
 import pandas as pd
 from linearmodels.panel import PanelOLS
 
 from auxiliary.helper import get_resid
 
-def params_description():
+
+def params_description(return_descriptives=False, return_toyestimates=False):
     """Provides the relevant unknown parameters and trial values.
 
     The trial values are computed as the mean of the upper and the lower bound which are also reported.
+
+    Returns
+    ---------------
+    return_descriptives=False(default):
+        Returns Pandas DataFrame with values and bounds of the parameters
+
+    return_descriptives=True:
+        Returns Pandas DataFrame with comments regarding the parameter
     """
     data = {
         "category": [
@@ -73,14 +82,37 @@ def params_description():
     }
     df = pd.DataFrame(data, columns=["category", "name", "comment", "lower", "upper"])
     df.set_index(["category", "name"], inplace=True)
-    df["value"] = (df["upper"] + df["lower"]) / 2
+    if return_toyestimates == True:
+        df['value'] = [1.5,
+        1.823,
+        0.035,
+        0.085,
+        0.035,
+        0.085,
+        0.5,
+        -25,
+        0,
+        -0.1,
+        -0.2,
+        -0.2,
+        -0.2,
+        -0.2,
+        -0.3,
+        -0.3,
+        -0.4,]
+    else:
+        df["value"] = (df["upper"] + df["lower"]) / 2
     for i in range(8, 17):
         df.iloc[i, 3] = 0
-    df = df[["value", "comment", "lower", "upper"]]
+    if return_descriptives == True:
+        df = df[["value", "comment", "lower", "upper"]]
+    else:
+        df = df[["value", "lower", "upper"]]
     return df
 
 
 def moments_description():
+    """Describes Moments."""
     data = {
         "category": [
             "lambda",
