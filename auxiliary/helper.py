@@ -16,9 +16,6 @@ def get_resid(df, sub, column_name):
 
 def dict_to_list(dict):
     """Transform a dictionary into a list of values."""
-    if type(dict) == dict:
-        calc_moments_list = list()
-        [calc_moments_list.append(func) for func in dict.values()]
-        return calc_moments_list
-    else:
-        return dict
+    calc_moments_list = list()
+    [calc_moments_list.append(func) for func in dict.values()]
+    return calc_moments_list

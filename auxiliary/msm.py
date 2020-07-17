@@ -733,18 +733,17 @@ def get_weighting_matrix(
    inverse bootstrap variances of the observed sample moments."""
    # Seed for reproducibility.
    np.random.seed(47828324)
-   flat_empirical_moments = rp.get_flat_moments(empirical_moments)
+   flat_empirical_moments = pd.Series(empirical_moments)
    index_base = data.index.get_level_values("subject").unique()
    calc_moments = dict_to_list(calc_moments)
    # Create bootstrapped moments.
    moments_sample = []
    for _ in range(n_bootstrap_samples):
        ids_boot = np.random.choice(
-           index_base, n_observations_per_sample, replace=False
+           index_base, n_observations_per_sample, replace=True
        )
        moments_boot = [func(data.loc[ids_boot]) for func in calc_moments]
-       flat_moments_boot = rp.get_flat_moments(moments_boot)
-       flat_moments_boot = flat_moments_boot.reindex_like(flat_empirical_moments)
+       flat_moments_boot = pd.Series(moments_boot, index=flat_empirical_moments.index)
        moments_sample.append(flat_moments_boot)
    # Compute variance for each moment and construct diagonal weighting matrix.
    moments_var = np.array(moments_sample).var(axis=0)
