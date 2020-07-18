@@ -3,7 +3,6 @@
 import numpy as np
 
 from auxiliary.overview import *
-from scipy.stats.stats import pearsonr
 
 def get_resid(df, sub, column_name):
     """Perform a linear regression to single out residuals."""

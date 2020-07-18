@@ -737,7 +737,7 @@ def get_weighting_matrix(
    index_base = data.index.get_level_values("subject").unique()
    calc_moments = dict_to_list(calc_moments)
    # Create bootstrapped moments.
-   moments_sample = []
+   moments_sample = list()
    for _ in range(n_bootstrap_samples):
        ids_boot = np.random.choice(
            index_base, n_observations_per_sample, replace=True
