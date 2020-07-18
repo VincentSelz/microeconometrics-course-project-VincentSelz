@@ -11,7 +11,11 @@ def get_datasets():
     Function reads in stata-files, puts all column names in lower case and sets
     a MultiIndex with subject and period.
 
-    Returns: Two datasets: One for the first movers and another for the second movers.
+    Returns
+    ----------------------------
+    df_1: Pandas DataFrame of the First Movers.
+    df_2: Pandas DataFrame of the Second Movers.
+    df_2_pref: Pandas DataFrame of the Second Movers excluding one subject.
     """
     df_2 = pd.read_stata("data/paper_data/master_data.dta")
     df_1 = pd.read_stata("data/paper_data/master_data_FM.dta")
@@ -28,9 +32,13 @@ def effort_overview(df):
     expend any effort over all periods and gives out an DataFrame with means, standard
     deviation and minimum and maximum for the respective period.
 
-    Args: DataFrame
+    Args
+    ------------------
+    df: Pandas DataFrame
 
-    Return: Dataframe with an overview of the effort choices for the respective round.
+    Return
+    ---------------------
+    rslt: Pandas Dataframe with an overview of the effort choices for the respective round.
     """
     rslt = pd.DataFrame()
     for name, e in [("E1", "e1"), ("E2", "e2")]:
@@ -85,15 +93,16 @@ def prize_distribution(df):
 def joint_effort(df):
     """Using the setup from lecture 4 to plot the joint distribution
 
-    Args: Dataframe with columns e1 and e2.
+    Args
+    ----------------
+    df: Dataframe with columns e1 and e2.
 
-    Return: Jointplot with Pearson R.
+    Return
+    ----------------------------
+    Jointplot with Pearson R.
     """
     joint_effort = sns.jointplot("e1", "e2", df)
-    # JointGrid has a convenience function
-    joint_effort.set_axis_labels("x", "y", fontsize=16)
-    # or set labels via the axes objects
-    joint_effort.ax_joint.set_xlabel("First Mover Effort")
-    joint_effort.ax_joint.set_ylabel("Second Mover Effort")
+    # Set axis labels
+    joint_effort.set_axis_labels("First Mover Effort", "Second Mover Effort", fontsize=16)
     joint_effort.annotate(stats.pearsonr)
     return joint_effort
