@@ -18,4 +18,4 @@ Gill and Prowse (2012) use a sequential real effort tournament to test experimen
 
 ### Contribution
 
-My contribution is by replicating the reduced form analysis of the paper and to add data visualisations. I also attempt to replicate their core result - the structural estimation - however, I was not able to get the simulation up and running. I am following the [respy](https://respy.readthedocs.io/en/latest/) outline and document the steps I have taken to replicate the simulation.   
+My contribution is by replicating the reduced form analysis of the paper and to add data visualisations. I also attempt to replicate their core result - the structural estimation - however, I was not able to get the criterion function up and running. I am following the [respy](https://respy.readthedocs.io/en/latest/) outline and document the steps I have taken to replicate the MSM.   
