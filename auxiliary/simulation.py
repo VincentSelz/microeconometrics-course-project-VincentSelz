@@ -73,7 +73,7 @@ def simulation(df, params):
             df_sim['e2'].loc[sub,period] = max_choice
     return df_sim
 
-def n_sims(df, params, calc_moments, empirical_moments, num_simulation=10, seed=1789):
+def get_simulated_moments(df, params, calc_moments, empirical_moments, num_simulation=10, seed=1789):
     """This funcions runs the constructed simulation num_simulation times.
 
     In addition to running the simulation num_simulation times, it also constructs the
